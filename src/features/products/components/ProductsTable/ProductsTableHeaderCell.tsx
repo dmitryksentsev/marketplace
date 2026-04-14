@@ -7,7 +7,15 @@ export type ProductsTableHeaderCellProps = {
 };
 
 const ProductsTableHeaderCell = ({ children }: ProductsTableHeaderCellProps) => (
-  <Box alignContent="center" gap="20px" height="73px" width="100%">
+  <Box
+    height="73px"
+    width="100%"
+    textAlign="center"
+    display="flex"
+    flexDirection="column"
+    justifyContent="center"
+    alignContent="center"
+  >
     <Typography
       sx={{
         color: '#B2B3B9',

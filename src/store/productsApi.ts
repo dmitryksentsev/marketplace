@@ -25,7 +25,7 @@ export const productsApi = createApi({
       }),
       invalidatesTags: [PRODUCTS_TAG],
     }),
-    
+
     getProducts: builder.query<FetchProductsResult, FetchProductsArgs>({
       query: ({ orderBy, page, sortDirection }) => ({
         params: {
@@ -37,15 +37,15 @@ export const productsApi = createApi({
         url: '/products',
       }),
       providesTags: (result) =>
-          result
-              ? [
-                    { type: PRODUCTS_TAG, id: "LIST" },
-                    ...result.products.map(({ id }) => ({
-                        type: PRODUCTS_TAG,
-                        id,
-                    })),
-                ]
-              : [{ type: PRODUCTS_TAG, id: "LIST" }],
+        result
+          ? [
+              { type: PRODUCTS_TAG, id: 'LIST' },
+              ...result.products.map(({ id }) => ({
+                type: PRODUCTS_TAG,
+                id,
+              })),
+            ]
+          : [{ type: PRODUCTS_TAG, id: 'LIST' }],
     }),
 
     searchProducts: builder.query<FetchProductsResult, FetchSearchProductsArgs>({
@@ -61,15 +61,15 @@ export const productsApi = createApi({
       }),
 
       providesTags: (result) =>
-          result
-              ? [
-                    { type: PRODUCTS_TAG, id: "LIST" },
-                    ...result.products.map(({ id }) => ({
-                        type: PRODUCTS_TAG,
-                        id,
-                    })),
-                ]
-              : [{ type: PRODUCTS_TAG, id: "LIST" }],
+        result
+          ? [
+              { type: PRODUCTS_TAG, id: 'LIST' },
+              ...result.products.map(({ id }) => ({
+                type: PRODUCTS_TAG,
+                id,
+              })),
+            ]
+          : [{ type: PRODUCTS_TAG, id: 'LIST' }],
     }),
   }),
 });

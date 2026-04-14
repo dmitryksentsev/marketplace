@@ -78,14 +78,17 @@ export const login = createAsyncThunk<LoginResult, LoginArgs, { rejectValue: App
   }
 );
 
-export const restoreTokens = createAsyncThunk<RestoreTokensResult, void>('api/restoreTokens', () => {
-  const storedValue = localStorage.getItem(APP_AUTH_TOKEN);
-  const accessToken = storedValue ? atob(storedValue) : null;
+export const restoreTokens = createAsyncThunk<RestoreTokensResult, void>(
+  'api/restoreTokens',
+  () => {
+    const storedValue = localStorage.getItem(APP_AUTH_TOKEN);
+    const accessToken = storedValue ? atob(storedValue) : null;
 
-  return {
-    accessToken
-  };
-});
+    return {
+      accessToken,
+    };
+  }
+);
 
 export const authSlice = createSlice({
   extraReducers: (builder) => {
@@ -103,9 +106,12 @@ export const authSlice = createSlice({
         draft.error = payload?.message || 'Error';
         draft.isLoading = false;
       })
-      .addCase(restoreTokens.fulfilled, (draft, { payload }: PayloadAction<RestoreTokensResult>) => {
-        draft.accessToken = payload.accessToken;
-      });
+      .addCase(
+        restoreTokens.fulfilled,
+        (draft, { payload }: PayloadAction<RestoreTokensResult>) => {
+          draft.accessToken = payload.accessToken;
+        }
+      );
   },
   initialState,
   name: 'auth',

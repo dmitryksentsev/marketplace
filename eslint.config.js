@@ -2,11 +2,9 @@ import js from '@eslint/js';
 import globals from 'globals';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import reactHooksOrder from 'eslint-plugin-react-hooks-order';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import importPlugin from 'eslint-plugin-import';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import perfectionist from 'eslint-plugin-perfectionist';
 import tseslint from 'typescript-eslint';
 import { defineConfig, globalIgnores } from 'eslint/config';
 
@@ -19,12 +17,10 @@ export default defineConfig([
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
       reactRefresh.configs.vite,
-      perfectionist.configs['recommended-natural'],
     ],
     plugins: {
       import: importPlugin,
       hooks: reactHooks,
-      'hooks-order': reactHooksOrder,
       react: reactPlugin,
       eslintConfigPrettier,
     },
@@ -52,25 +48,6 @@ export default defineConfig([
       'react/jsx-newline': 'error',
       'react/no-array-index-key': 'error',
       'no-console': 'error',
-
-      // 'hooks-order/sort': [
-      //   2,
-      //   {
-      //     groups: [
-      //       'useIntl',
-      //       'useUnit',
-      //       'useStore',
-      //       'useEvent',
-      //       'useAppDispatch',
-      //       'useAppSelector',
-      //       'useState',
-      //       'useRef',
-      //       'useCallback',
-      //       'useLayoutEffect',
-      //       'useEffect',
-      //     ],
-      //   },
-      // ],
     },
   },
 ]);

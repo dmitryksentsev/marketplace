@@ -1,14 +1,10 @@
+import { IconButton, InputAdornment, TextField, type TextFieldProps } from '@mui/material';
+import { ClearIcon } from './icons';
 import type { ChangeEvent } from 'react';
 
-import { IconButton, InputAdornment, TextField, type TextFieldProps } from '@mui/material';
+export type ClearableTextInputProps = TextFieldProps;
 
-import { ClearIcon } from './icons';
-
-export type ClearableTextInputProps = TextFieldProps & {
-  onClear: () => void;
-};
-
-const ClearableTextInput = ({ onChange, slotProps, value, ...props }: ClearableTextInputProps) => {
+const ClearableTextInput = ({ value, slotProps, onChange, ...props }: ClearableTextInputProps) => {
   const handleClear = () => {
     onChange?.({
       target: {
@@ -20,6 +16,7 @@ const ClearableTextInput = ({ onChange, slotProps, value, ...props }: ClearableT
   return (
     <TextField
       {...props}
+      value={value}
       onChange={onChange}
       slotProps={{
         ...slotProps,
@@ -28,20 +25,19 @@ const ClearableTextInput = ({ onChange, slotProps, value, ...props }: ClearableT
           endAdornment: value ? (
             <InputAdornment position="end">
               <IconButton
-                disableFocusRipple
-                onClick={handleClear}
                 size="small"
+                disableFocusRipple
                 sx={{
                   padding: 0,
                 }}
+                onClick={handleClear}
               >
-                <ClearIcon sx={{ color: '#c9c9c9', height: '16px', width: '14px' }} />
+                <ClearIcon sx={{ color: '#c9c9c9', width: '14px', height: '16px' }} />
               </IconButton>
             </InputAdornment>
           ) : undefined,
         },
       }}
-      value={value}
     />
   );
 };

@@ -8,9 +8,7 @@ import styles from './Login.module.css';
 
 const Login = () => {
   return (
-    <Box
-      className={styles.root}
-    >
+    <Box className={styles.root}>
       <Box
         className={styles.container}
         sx={{

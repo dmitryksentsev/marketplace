@@ -5,11 +5,10 @@ const ClearIcon = (props: SvgIconProps) => (
     <path
       d="M1.01031 1.00002L15.0103 17"
       stroke="currentColor"
-      stroke-linecap="round"
       stroke-width="2"
+      stroke-linecap="round"
     />
-
-    <path d="M15 1.00002L1 17" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+    <path d="M15 1.00002L1 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
   </SvgIcon>
 );
 
