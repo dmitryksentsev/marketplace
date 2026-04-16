@@ -60,7 +60,7 @@ const Products = () => {
       pb="30px"
       pt="20px"
       sx={{
-        background: '#F3F3F3',
+        background: '#ededed',
       }}
       width="100%"
     >
